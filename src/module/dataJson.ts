@@ -11,3 +11,11 @@ export interface Phone {
     thumbnail: string
     images: Array<string>
 }
+
+export interface ClimaResponse {
+    current_weather: CurrentWeather
+}
+
+export interface CurrentWeather {
+    temperature: number
+}

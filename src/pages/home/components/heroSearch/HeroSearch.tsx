@@ -1,3 +1,4 @@
+import Clima from '../../../clima/Clima'
 import './heroSearch.css'
 
 interface HeroSearchProps {
@@ -14,7 +15,12 @@ const HeroSearch = ({ busqueda, setBusqueda }: HeroSearchProps) => {
   return (
     <section className='heroSearch'>
       <div id='heroContent'>
-        <h1>Busca lo que necesitas... los mejores celulares al mejor precio</h1>
+        <Clima />
+
+        <h1>
+          <span>Busca lo que necesitas</span>
+          <span>Los mejores celulares al mejor precio...</span>
+        </h1>
 
         <div id='searchBox'>
           <span id='searchIcon'>🔍</span>
