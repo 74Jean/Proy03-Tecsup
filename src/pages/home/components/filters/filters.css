@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500..800&display=swap');
+/*Orbitron*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+/*Outfit*/
+
+.filters {
+    --color-black: rgb(17, 17, 17);
+    --color-card: rgb(255, 255, 255);
+    --color-accent: rgb(47, 111, 237);
+    --color-text-muted: rgb(120, 120, 120);
+    --color-border-light: rgb(225, 225, 225);
+
+    width: 280px;
+    flex-shrink: 0;
+    
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    h2 {
+        font-family: "Orbitron";
+        font-size: 22px;
+        color: var(--color-black);
+    }
+
+    .filterGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid var(--color-border-light);
+
+        h3 {
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--color-black);
+            margin-bottom: 4px;
+        }
+
+        .checkOption {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+
+            input {
+                accent-color: var(--color-accent);
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+            }
+
+            span {
+                font-family: "Outfit";
+                font-size: 14px;
+                color: var(--color-black);
+            }
+        }
+
+        .priceInputs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            input {
+                width: 100%;
+                padding: 8px 10px;
+                border: 2px solid var(--color-black);
+                border-radius: 8px;
+                font-family: "Outfit";
+                font-size: 13px;
+                outline: none;
+            }
+            input:focus {
+                border-color: var(--color-accent);
+            }
+
+            span {
+                font-family: "Outfit";
+                color: var(--color-text-muted);
+            }
+        }
+    }
+
+    #btnClearFilters {
+        background-color: transparent;
+        border: 2px solid var(--color-black);
+        border-radius: 10px;
+        padding: 9px;
+        font-family: "Outfit";
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    #btnClearFilters:hover {
+        background-color: var(--color-black);
+        color: white;
+    }
+}
