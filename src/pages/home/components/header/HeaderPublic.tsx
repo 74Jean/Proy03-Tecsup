@@ -1,8 +1,9 @@
-
+import { useNavigate } from 'react-router-dom'
 import './headerPublic.css'
 
 
 const HeaderPublic = () => {
+  const navigate = useNavigate()
   return (
     <header className='headerPublic'>
       <p id='headTitle'><span>Phone</span> <span>Market</span></p>
@@ -12,7 +13,7 @@ const HeaderPublic = () => {
           🛒
         </div>
 
-        <button id='btnLogin'>Iniciar Sesión</button>
+        <button id='btnLogin' onClick={() => navigate('/login')}>Iniciar Sesión</button>
       </div>
     </header>
   )
