@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate  } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import HeaderPublic from '../home/components/header/HeaderPublic'
-import HeaderUser from '../home/components/header/HeaderUser'
 import '../phoneDetail/phoneDetail.css'
 import { getPhoneById } from '../../services/dataServices'
 import type { Phone } from '../../module/dataJson'
+import HeaderUser from '../home/components/header/HeaderUser'
 import useUserStore from '../../shared/store/useUserStore'
-
+import useCartStore from '../../shared/store/useCartStore'
 
 const PhoneDetail = () => {
     const { user } = useUserStore()
+    const addItem = useCartStore((state) => state.addItem)
     const { id } = useParams()
     const navigate = useNavigate()
+    const location = useLocation()
     const [phone, setPhone] = useState<Phone | null>(null)
-    const [imagenSeleccionada, setImagenSeleccionada] = useState(0) 
+    const [imagenSeleccionada, setImagenSeleccionada] = useState(0)
 
     useEffect(() => {
         const cargarPhone = async () => {
@@ -25,13 +27,41 @@ const PhoneDetail = () => {
         cargarPhone()
     }, [id])
 
-    const handleVolver = () => { 
+    const handleVolver = () => {
         navigate(-1)
     }
 
     if (!phone) return <p>Cargando...</p>
 
     const precioConDescuento = phone.price - (phone.price * phone.discountPercentage / 100)
+
+    const agregarAlCarrito = () => {
+        if (!user) {
+            navigate('/login', { state: { from: location.pathname } })
+            return
+        }
+
+        addItem({
+            id: phone.id,
+            name: phone.title,
+            price: precioConDescuento,
+            image: phone.thumbnail,
+            stock: phone.stock,
+        })
+    }
+
+    const handleAddToCart = () => {
+        agregarAlCarrito()
+    }
+
+    const handleBuyNow = () => {
+        if (!user) {
+            navigate('/login', { state: { from: location.pathname } })
+            return
+        }
+        agregarAlCarrito()
+        navigate('/cart')
+    }
 
     return (
         <div className='phoneDetail'>
@@ -50,11 +80,11 @@ const PhoneDetail = () => {
                                 onClick={() => setImagenSeleccionada(index)}
                             >
                                 <img src={img} alt={`${phone.title} ${index + 1}`} />
-                            </div>                                                    
+                            </div>
                         ))}
                     </div>
 
-                    <button id='btnVolver' onClick={handleVolver}> 
+                    <button id='btnVolver' onClick={handleVolver}>
                         ← Volver
                     </button>
                 </div>
@@ -88,7 +118,12 @@ const PhoneDetail = () => {
                                 )}
                             </div>
                         </div>
-                        <button id='btnBuyNow'>Comprar ahora</button>
+                        <button id='btnBuyNow' onClick={handleBuyNow} disabled={phone.stock === 0}>
+                            Comprar ahora
+                        </button>
+                        <button id='btnBuyNow' onClick={handleAddToCart} disabled={phone.stock === 0}>
+                            Agregar al carrito
+                        </button>
                     </div>
                 </div>
             </main>

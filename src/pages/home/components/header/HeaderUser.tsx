@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import useUserStore from '../../../../shared/store/useUserStore'
+import useCartStore from '../../../../shared/store/useCartStore'
 import './headerUser.css'
 
 const HeaderUser = () => {
   const { user, logout } = useUserStore()
   const navigate = useNavigate()
+  const totalItems = useCartStore((state) => state.distinctItemsCount())
 
   const cerrarSesion = () => {
     logout()
@@ -16,13 +18,13 @@ const HeaderUser = () => {
     : ''
 
   return (
-     <header className='headerUser'>
+    <header className='headerUser'>
       <p id='headTitle'><span>Phone</span> <span>Market</span></p>
 
       <div id='headerActions'>
-        <div id='cartIcon'>
+        <div id='cartIcon' onClick={() => navigate('/cart')} style={{ cursor: 'pointer' }}>
           🛒
-          <span id='cartBadge'>2</span>
+          {totalItems > 0 && <span id='cartBadge'>{totalItems}</span>}
         </div>
 
         <div id='userSection'>
