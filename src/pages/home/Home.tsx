@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react"
 import Filters from "./components/filters/Filters"
 import HeaderPublic from "./components/header/HeaderPublic"
+import HeaderUser from "./components/header/HeaderUser"
 import HeroSearch from "./components/heroSearch/HeroSearch"
 import PhoneCard from "./components/phoneCard/PhoneCard"
+import useUserStore from "../../shared/store/useUserStore"
 import './home.css'
 import type {  Phone } from "../../module/dataJson"
 import { getPhones } from "../../services/dataServices"
 
-const Home = () => {  
+const Home = () => {
+  const { user } = useUserStore()
   const [phones, setPhones] = useState<Phone[]>([])
 
   const [busqueda, setBusqueda] = useState('')
@@ -73,7 +76,7 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <HeaderPublic />
+      {user ? <HeaderUser /> : <HeaderPublic />}
       <HeroSearch busqueda={busqueda} setBusqueda={setBusqueda} />
 
       <div id='mainContent'>

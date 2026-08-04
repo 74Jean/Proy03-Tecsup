@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate  } from 'react-router-dom'
 import HeaderPublic from '../home/components/header/HeaderPublic'
+import HeaderUser from '../home/components/header/HeaderUser'
 import '../phoneDetail/phoneDetail.css'
 import { getPhoneById } from '../../services/dataServices'
 import type { Phone } from '../../module/dataJson'
+import useUserStore from '../../shared/store/useUserStore'
 
 
 const PhoneDetail = () => {
+    const { user } = useUserStore()
     const { id } = useParams()
     const navigate = useNavigate()
     const [phone, setPhone] = useState<Phone | null>(null)
@@ -32,7 +35,7 @@ const PhoneDetail = () => {
 
     return (
         <div className='phoneDetail'>
-            <HeaderPublic />
+            {user ? <HeaderUser /> : <HeaderPublic />}
             <main>
                 <div id='gallerySection'>
                     <div id='mainImage'>
