@@ -86,6 +86,10 @@ const Login = () => {
           </form>
 
           <p id='volverText'>¿No tienes cuenta? <span onClick={() => navigate('/registro')}>Regístrate</span></p>
+
+          <button id='btnVolver' onClick={() => navigate('/')}>
+            ← Volver
+          </button>
         </div>
       </main>
     </div>

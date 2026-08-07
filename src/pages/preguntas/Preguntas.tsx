@@ -4,7 +4,7 @@ import HeaderPublic from '../home/components/header/HeaderPublic'
 import HeaderUser from '../home/components/header/HeaderUser'
 import Footer from '../../shared/components/footer/Footer'
 import useUserStore from '../../shared/store/useUserStore'
-import './faq.css'
+import './preguntas.css'
 
 const preguntas = [
   {

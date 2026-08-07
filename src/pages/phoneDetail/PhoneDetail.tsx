@@ -118,12 +118,19 @@ const PhoneDetail = () => {
                                 )}
                             </div>
                         </div>
-                        <button id='btnBuyNow' onClick={handleBuyNow} disabled={phone.stock === 0}>
-                            Comprar ahora
-                        </button>
-                        <button id='btnBuyNow' onClick={handleAddToCart} disabled={phone.stock === 0}>
-                            Agregar al carrito
-                        </button>
+
+                        {phone.stock > 0 ? (
+                            <>
+                                <button className='btnBuy' onClick={handleBuyNow}>
+                                    Comprar ahora
+                                </button>
+                                <button className='btnBuy' onClick={handleAddToCart}>
+                                    Agregar al carrito
+                                </button>
+                            </>
+                        ) : (
+                            <p id='sinStockMsgDetail'>Este celular no tiene stock disponible</p>
+                        )}
                     </div>
                 </div>
             </main>

@@ -22,9 +22,9 @@ const Footer = () => {
 
         <div id='footerContact'>
           <p id='footerColTitle'>Contacto</p>
-          <span>WhatsApp: +51 902740325</span>
+          <span>WhatsApp: +51 987 654 321</span>
           <span>contacto@phonemarket.com</span>
-          <span>Ica, Perú</span>
+          <span>Lima, Perú</span>
         </div>
       </div>
 

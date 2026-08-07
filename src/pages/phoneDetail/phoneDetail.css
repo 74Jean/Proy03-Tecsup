@@ -202,7 +202,7 @@
                 }
             }
 
-            #btnBuyNow {
+            .btnBuy {
                 width: 100%;
                 padding: 14px;
                 background-color: var(--color-black);
@@ -215,8 +215,17 @@
                 cursor: pointer;
                 transition: 0.2s;
             }
-            #btnBuyNow:hover {
+            .btnBuy:hover {
                 background-color: var(--color-accent);
+            }
+
+            #sinStockMsgDetail {
+                font-family: "Outfit";
+                font-weight: 600;
+                font-size: 14px;
+                color: var(--color-error);
+                text-align: center;
+                padding: 12px;
             }
         }
     }

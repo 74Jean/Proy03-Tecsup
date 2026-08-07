@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+
+.error404 {
+    --color-bg: rgb(244, 246, 248);
+    --color-black: rgb(17, 17, 17);
+    --color-accent: rgb(47, 111, 237);
+    --color-text-muted: rgb(120, 120, 120);
+
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg);
+
+    #error404Container {
+        text-align: center;
+
+        h1 {
+            font-family: "Candal";
+            font-size: 90px;
+            color: var(--color-accent);
+        }
+
+        p {
+            font-family: "Outfit";
+            font-size: 16px;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            padding: 12px 28px;
+            background-color: var(--color-black);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover {
+            background-color: var(--color-accent);
+        }
+    }
+}
