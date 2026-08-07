@@ -50,11 +50,11 @@ Se abre en `http://localhost:5173`
 
 ```
 src/
-├── pages/          # Cada página de la app (home, login, registro, cart, etc.)
-├── router/         # Rutas de la aplicación
-├── services/       # Llamadas a APIs (catálogo, chat con IA)
-├── shared/store/   # Estado global (usuario y carrito) con Zustand
-└── module/         # Tipos de TypeScript
+├── pages/
+├── router/
+├── services/
+├── shared/store/
+└── module/
 ```
 
 ## Notas
