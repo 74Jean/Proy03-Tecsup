@@ -9,6 +9,7 @@ import './home.css'
 import type {  Phone } from "../../module/dataJson"
 import { getPhones } from "../../services/dataServices"
 import Footer from "../../shared/components/footer/Footer"
+import ChatWidget from "./components/chat/ChatWidget"
 
 const Home = () => {
   const { user } = useUserStore()
@@ -122,6 +123,8 @@ const Home = () => {
         </div>
       </div>
       <Footer />
+
+      <ChatWidget />
     </div>
   )
 }
