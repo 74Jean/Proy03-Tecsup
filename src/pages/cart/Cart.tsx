@@ -15,6 +15,16 @@ const Cart = () => {
         updateQuantity(id, cantidad)
     }
 
+    const handleConfirmarCompra = () => {
+        navigate('/boleta', {
+            state: {
+                items: items,
+                total: totalPrice()
+            }
+        })
+        clearCart()
+    }
+
     return (
         <div className='cartPage'>
             {user ? <HeaderUser /> : <HeaderPublic />}
@@ -76,8 +86,8 @@ const Cart = () => {
                                 <h2>S/ {totalPrice().toFixed(2)}</h2>
                             </div>
 
-                            <button id='btnCheckout' onClick={() => navigate('/checkout')}>
-                                Continuar compra
+                            <button id='btnCheckout' onClick={handleConfirmarCompra}>
+                                Confirmar compra
                             </button>
 
                             <button id='btnClearCart' onClick={clearCart}>
