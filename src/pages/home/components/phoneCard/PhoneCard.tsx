@@ -2,6 +2,8 @@ import type { FC } from 'react'
 
 import './phoneCard.css'
 import { useNavigate } from 'react-router-dom'
+import useUserStore from '../../../../shared/store/useUserStore'
+import useCartStore from '../../../../shared/store/useCartStore'
 
 interface PhoneCardProps {
     id: number 
@@ -26,10 +28,31 @@ const PhoneCard: FC<PhoneCardProps> = ({
 }: PhoneCardProps) => {
 
     const navigate = useNavigate()
+    const {addItem} = useCartStore()
+    const { user } = useUserStore()
+
     const precioConDescuento = precio - (precio * descuento / 100)
 
     const handleClick = () => {
         navigate(`/phone/${id}`)
+    }
+
+    const handleAddToCard = (e: React.MouseEvent) => {
+        e.stopPropagation()
+
+        if (!user) {
+            navigate('/login', { state: { from: location.pathname } })
+            return
+        }
+
+        addItem({
+            id,
+            name: titulo,
+            price: precioConDescuento,
+            image: imagen_url,
+            stock            
+        })
+        
     }
 
     return (
@@ -62,7 +85,13 @@ const PhoneCard: FC<PhoneCardProps> = ({
                     <h4>S/ {precioConDescuento.toFixed(2)}</h4>
                 </div>
 
-                <button id='btnAddCart'>Agregar</button>
+                {stock > 0 ? (
+                    <button id='btnAddCart' onClick={handleAddToCard}>
+                        Agregar
+                    </button>
+                ) : (
+                    <p id='sinStockMsg'>Sin stock disponible</p>
+                )}
             </div>
         </div>
     )
