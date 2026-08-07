@@ -8,6 +8,7 @@ import useUserStore from "../../shared/store/useUserStore"
 import './home.css'
 import type {  Phone } from "../../module/dataJson"
 import { getPhones } from "../../services/dataServices"
+import Footer from "../../shared/components/footer/Footer"
 
 const Home = () => {
   const { user } = useUserStore()
@@ -120,7 +121,7 @@ const Home = () => {
           }            
         </div>
       </div>
-      
+      <Footer />
     </div>
   )
 }
