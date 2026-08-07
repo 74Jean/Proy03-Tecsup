@@ -8,6 +8,7 @@ import Preguntas from "../pages/preguntas/Preguntas"
 import Terms from "../pages/terms/Terms"
 import RutaPrivada from "../pages/RutaPrivada"
 import Error404 from "../pages/error/Error404"
+import Boleta from "../pages/boleta/Boleta"
 
 const AppRoutes = () => {
   return (
@@ -19,9 +20,9 @@ const AppRoutes = () => {
       <Route path="/preguntas-frecuentes" element={<Preguntas />} />
       <Route path="/terminos-y-condiciones" element={<Terms />} />
 
-
       <Route element={<RutaPrivada />}>
         <Route path="/cart" element={<Cart />} />
+        <Route path="/boleta" element={<Boleta />} />
       </Route>
 
       <Route path='*' element={<Error404 />} />

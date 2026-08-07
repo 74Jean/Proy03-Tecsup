@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+
+.boleta {
+    --color-bg: rgb(244, 246, 248);
+    --color-card: rgb(255, 255, 255);
+    --color-black: rgb(17, 17, 17);
+    --color-accent: rgb(47, 111, 237);
+    --color-text-muted: rgb(120, 120, 120);
+
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg);
+    padding: 2rem;
+
+    #boletaContainer {
+        background-color: var(--color-card);
+        border: 2px solid var(--color-black);
+        border-radius: 16px;
+        box-shadow: 6px 6px 0px var(--color-accent);
+        padding: 2.5rem;
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        h1 {
+            font-family: "Candal";
+            font-size: 26px;
+            color: var(--color-black);
+            text-align: center;
+        }
+
+        #boletaSubtitle {
+            font-family: "Outfit";
+            font-size: 14px;
+            color: var(--color-text-muted);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        #boletaItemsList {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            border-top: 1px solid rgb(230, 230, 230);
+            border-bottom: 1px solid rgb(230, 230, 230);
+            padding: 1rem 0;
+
+            .boletaItem {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    object-fit: contain;
+                    background-color: rgb(248, 248, 248);
+                    border-radius: 8px;
+                    padding: 4px;
+                }
+
+                .boletaItemInfo {
+                    flex: 1;
+
+                    .boletaItemName {
+                        font-family: "Outfit";
+                        font-weight: 600;
+                        font-size: 14px;
+                        color: var(--color-black);
+                    }
+
+                    .boletaItemQuantity {
+                        font-family: "Outfit";
+                        font-size: 12px;
+                        color: var(--color-text-muted);
+                    }
+                }
+
+                .boletaItemSubtotal {
+                    font-family: "Outfit";
+                    font-weight: 700;
+                    font-size: 14px;
+                    color: var(--color-black);
+                }
+            }
+        }
+
+        #boletaTotal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span {
+                font-family: "Outfit";
+                font-weight: 600;
+                font-size: 15px;
+                color: var(--color-black);
+            }
+
+            h2 {
+                font-family: "Outfit";
+                font-weight: 700;
+                font-size: 22px;
+                color: var(--color-accent);
+            }
+        }
+
+        #btnVolverHome {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-black);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #btnVolverHome:hover {
+            background-color: var(--color-accent);
+        }
+    }
+}
