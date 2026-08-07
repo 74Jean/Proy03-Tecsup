@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+
+.footer {
+    --color-black: rgb(17, 17, 17);
+    --color-card: rgb(255, 255, 255);
+    --color-accent: rgb(47, 111, 237);
+    --color-text-muted: rgb(120, 120, 120);
+
+    margin-top: 3rem;
+    background-color: var(--color-black);
+    border-top: 2px solid var(--color-black);
+    color: white;
+
+    #footerContent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 2.5rem 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        #footerBrand {
+            max-width: 320px;
+
+            #footerTitle {
+                font-family: "Candal";
+                font-size: 24px;
+
+                span:nth-child(1) {
+                    color: white;
+                }
+                span:nth-child(2) {
+                    color: var(--color-accent);
+                }
+            }
+
+            #footerText {
+                font-family: "Outfit";
+                font-size: 13px;
+                color: rgb(190, 190, 190);
+                margin-top: 8px;
+                line-height: 1.5;
+            }
+        }
+
+        #footerLinks, #footerContact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            #footerColTitle {
+                font-family: "Outfit";
+                font-weight: 700;
+                font-size: 14px;
+                color: var(--color-accent);
+                margin-bottom: 4px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            span {
+                font-family: "Outfit";
+                font-size: 13px;
+                color: rgb(210, 210, 210);
+                cursor: pointer;
+                transition: 0.2s;
+                width: fit-content;
+            }
+
+            span:hover {
+                color: var(--color-accent);
+            }
+        }
+    }
+
+    #footerBottom {
+        border-top: 1px solid rgb(50, 50, 50);
+        padding: 14px 30px;
+        text-align: center;
+
+        p {
+            font-family: "Outfit";
+            font-size: 12px;
+            color: rgb(150, 150, 150);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .footer #footerContent {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400..700&display=swap');
+
+.registro {
+    --color-bg: rgb(244, 246, 248);
+    --color-card: rgb(255, 255, 255);
+    --color-black: rgb(17, 17, 17);
+    --color-accent: rgb(47, 111, 237);
+    --color-accent-dark: rgb(30, 80, 190);
+    --color-text-muted: rgb(120, 120, 120);
+    --color-error: rgb(220, 53, 53);
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 25px;
+        height: 70px;
+        background-color: var(--color-card);
+        border-bottom: 2px solid var(--color-black);
+
+        #headTitle {
+            font-family: "Candal";
+            font-size: 34px;
+
+            span:nth-child(1) {
+                color: var(--color-black);
+            }
+            span:nth-child(2) {
+                color: var(--color-accent);
+            }
+        }
+    }
+
+    main {
+        min-height: calc(100vh - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-bg);
+        padding: 2rem 0;
+
+        #registroContainer {
+            background-color: var(--color-card);
+            border: 2px solid var(--color-black);
+            border-radius: 15px;
+            box-shadow: 6px 6px 0px var(--color-accent);
+            padding: 2.5rem;
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+
+            #registroHeader {
+                text-align: center;
+                margin-bottom: 0.5rem;
+
+                h2 {
+                    font-family: "Candal";
+                    font-size: 26px;
+                    color: var(--color-black);
+                }
+
+                p {
+                    font-family: "Outfit";
+                    font-size: 14px;
+                    color: var(--color-text-muted);
+                    margin-top: 4px;
+                }
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.1rem;
+            }
+
+            .inputGroup {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                label {
+                    font-family: "Outfit";
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--color-black);
+                }
+
+                input {
+                    padding: 10px 14px;
+                    border: 2px solid var(--color-black);
+                    border-radius: 10px;
+                    font-family: "Outfit";
+                    font-size: 15px;
+                    outline: none;
+                    transition: 0.2s;
+                }
+                input:focus {
+                    border-color: var(--color-accent);
+                }
+            }
+
+            .errorText {
+                font-family: "Outfit";
+                font-size: 13px;
+                color: var(--color-error);
+                min-height: 16px;
+            }
+
+            #btnRegistro {
+                width: 100%;
+                padding: 10px;
+                background-color: var(--color-accent);
+                color: white;
+                border: 2px solid var(--color-black);
+                border-radius: 10px;
+                font-family: "Sora";
+                font-weight: 600;
+                font-size: 16px;
+                cursor: pointer;
+                transition: 0.2s;
+                box-shadow: 3px 3px 0px var(--color-black);
+            }
+            #btnRegistro:hover {
+                background-color: var(--color-accent-dark);
+                transform: translate(-2px, -2px);
+                box-shadow: 5px 5px 0px var(--color-black);
+            }
+
+            #volverText {
+                font-family: "Outfit";
+                font-size: 13px;
+                color: var(--color-text-muted);
+                text-align: right;
+
+                span {
+                    color: var(--color-accent);
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: 0.2s;
+                }
+                span:hover {
+                    color: var(--color-accent-dark);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

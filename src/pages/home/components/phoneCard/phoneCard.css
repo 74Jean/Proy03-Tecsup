@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+/*Outfit*/
+
+.phoneCard {
+    --color-black: rgb(17, 17, 17);
+    --color-card: rgb(255, 255, 255);
+    --color-accent: rgb(47, 111, 237);
+    --color-text-muted: rgb(120, 120, 120);
+    --color-error: rgb(220, 53, 53);
+    --color-success: rgb(30, 160, 90);
+
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-black);
+    
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: var(--color-card);
+    transition: 0.2s;
+    box-shadow: 4px 4px 0px var(--color-black);
+    cursor: pointer; 
+
+    #cardImage {
+        position: relative;
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(240, 245, 253);
+        border-bottom: 2px solid var(--color-black);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        #discountBadge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--color-error);
+            color: white;
+            font-family: "Outfit";
+            font-weight: 700;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+    }
+
+    #cardInfo {
+        padding: 12px 14px 0px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px; 
+
+        #cardBrand {
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px; 
+        }
+
+        #cardTitle {
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--color-black);
+            line-height: 1.4; 
+
+            min-height: 38px;
+        }
+
+        #cardRating {
+            font-family: "Outfit";
+            font-size: 13px;
+            color: var(--color-black);
+        }
+
+        #cardStock {
+            font-family: "Outfit";
+            font-size: 12px;
+            color: var(--color-success);
+            margin-bottom: 6px; 
+        }
+        #cardStock.sinStock {
+            color: var(--color-error);
+        }
+    }
+
+    #cardFooter {
+        margin-top: auto;
+        padding: 14px 14px 14px 14px; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+
+        #cardPrice {
+            display: flex;
+            flex-direction: column;
+
+            #oldPrice {
+                font-family: "Outfit";
+                font-size: 12px;
+                color: var(--color-text-muted);
+                text-decoration: line-through;
+            }
+
+            h4 {
+                font-family: "Outfit";
+                font-weight: 700;
+                font-size: 17px;
+                color: var(--color-black);
+            }
+        }
+
+        #btnAddCart {
+            background-color: var(--color-accent);
+            color: white;
+            border: 2px solid var(--color-black);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        #btnAddCart:hover {
+            background-color: rgb(30, 80, 190);
+        }
+
+        #sinStockMsg {
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--color-error);
+            text-align: right;
+        }
+    }
+}
+
+.phoneCard:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--color-accent); 
+    border-color: var(--color-accent); 
+}

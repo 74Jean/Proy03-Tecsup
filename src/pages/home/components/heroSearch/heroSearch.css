@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500..800&display=swap');
+/*Orbitron*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+/*Outfit*/
+
+.heroSearch {
+    --color-bg: rgb(244, 246, 248);
+    --color-card: rgb(255, 255, 255);
+    --color-black: rgb(17, 17, 17);
+    --color-accent: rgb(47, 111, 237);
+    --color-text-muted: rgb(120, 120, 120);
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 230px;
+    padding: 3rem 6rem;
+    background-color: var(--color-bg);
+
+    .climaWidget{
+        position: absolute;
+        top: 30px;
+        left: 40px;
+    }
+
+    #heroContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.8rem;
+        max-width: 620px;
+        text-align: right;
+
+        h1 {
+            font-family: "Orbitron";
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 1.5;
+            color: var(--color-black);
+            text-align: center; 
+
+            span {
+                display: block;
+                white-space: nowrap;  
+            }
+        }
+
+        #searchBox {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--color-card);
+            border: 2px solid var(--color-black);
+            border-radius: 14px;
+            padding: 12px 20px;
+            transition: 0.2s;
+
+            #searchIcon {
+                font-size: 18px;
+            }
+
+            input {
+                flex: 1;
+                border: none;
+                outline: none;
+                font-family: "Outfit";
+                font-size: 15px;
+                color: var(--color-black);
+                background: transparent;
+            }
+            input::placeholder {
+                color: var(--color-text-muted);
+            }
+        }
+        #searchBox:focus-within {
+            border-color: var(--color-accent);
+            box-shadow: 3px 3px 0px var(--color-accent);
+        }
+    }
+}

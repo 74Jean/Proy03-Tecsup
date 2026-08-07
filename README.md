@@ -1,75 +1,62 @@
-# React + TypeScript + Vite
+# Phone Market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto académico de una tienda de celulares (e-commerce) hecho con React + TypeScript + Vite.
 
-Currently, two official plugins are available:
+Permite ver un catálogo de celulares, filtrarlos, registrarse e iniciar sesión, agregar productos a un carrito de compras y confirmar una "compra" (se genera una boleta simulada). También incluye un chat con IA que recomienda productos del catálogo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías usadas
 
-## React Compiler
+- React 19 + TypeScript
+- Vite
+- React Router DOM
+- Zustand
+- Google Gemini API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Cómo correr el proyecto
 
-## Expanding the ESLint configuration
+1. Clonar el repositorio
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone https://github.com/74Jean/Proy03-Tecsup.git
+cd phone-market
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+pnpm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. Levantar el proyecto
+
+```bash
+pnpm dev
+```
+
+Se abre en `http://localhost:5173`
+
+## Funcionalidades
+
+- Catálogo de celulares con búsqueda y filtros (marca, precio, rating, stock, descuento)
+- Registro e inicio de sesión (guardado en localStorage)
+- Carrito de compras (independiente por usuario)
+- Rutas privadas: hay que estar logueado para entrar al carrito y a la boleta
+- Vista de detalle de cada celular
+- Boleta al confirmar la compra
+- Chat con IA que recomienda celulares del catálogo
+- Página de preguntas frecuentes y términos y condiciones
+
+## Estructura básica
 
 ```
+src/
+├── pages/
+├── router/
+├── services/
+├── shared/store/
+└── module/
+```
+
+## Notas
+
+- El proyecto no tiene backend propio: el catálogo se consume desde una API externa y los usuarios se guardan en localStorage, así que los datos no persisten entre navegadores.

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+/*Candal*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&display=swap');
+/*Outfit*/
+
+.headerPublic {
+    --color-black: rgb(17, 17, 17);
+    --color-card: rgb(255, 255, 255);
+    --color-accent: rgb(47, 111, 237);
+    --color-accent-dark: rgb(30, 80, 190);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    height: 70px;
+    background-color: var(--color-card);
+    border-bottom: 2px solid var(--color-black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    #headTitle {
+        font-family: "Candal";
+        font-size: 30px;
+
+        span:nth-child(1) {
+            color: var(--color-black);
+        }
+        span:nth-child(2) {
+            color: var(--color-accent);
+        }
+    }
+
+    #headerActions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        #cartIcon {
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #cartIcon:hover {
+            transform: scale(1.15);
+        }
+
+        #btnLogin {
+            background-color: var(--color-accent);
+            color: white;
+            border: 2px solid var(--color-black);
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-family: "Outfit";
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 3px 3px 0px var(--color-black);
+        }
+        #btnLogin:hover {
+            background-color: var(--color-accent-dark);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--color-black);
+        }
+    }
+}
