@@ -9,8 +9,8 @@ Permite ver un catálogo de celulares, filtrarlos, registrarse e iniciar sesión
 - React 19 + TypeScript
 - Vite
 - React Router DOM
-- Zustand (manejo de estado)
-- Google Gemini API (chat de ventas)
+- Zustand
+- Google Gemini API
 
 ## Cómo correr el proyecto
 
